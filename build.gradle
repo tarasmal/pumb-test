@@ -29,6 +29,10 @@ dependencies {
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     developmentOnly 'org.springframework.boot:spring-boot-docker-compose'
     annotationProcessor 'org.projectlombok:lombok'
+    implementation 'org.apache.commons:commons-csv:1.9.0'
+    implementation 'org.mapstruct:mapstruct:1.5.3.Final'
+    annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.3.Final'
+    implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-xml'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
