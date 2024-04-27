@@ -9,7 +9,6 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.BeanPropertyBindingResult;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.ObjectError;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -36,6 +35,6 @@ public class AnimalService {
             }
         }
 
-        return Arrays.deepToString(errors.toArray());
+        return errors.isEmpty() ? "" : Arrays.deepToString(errors.toArray());
     }
 }

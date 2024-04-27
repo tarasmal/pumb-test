@@ -6,10 +6,7 @@ import com.example.task.exception.InvalidFileFormatException;
 import com.example.task.fileParser.FileParser;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.validation.ObjectError;
-
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
