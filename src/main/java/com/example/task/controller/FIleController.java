@@ -21,14 +21,9 @@ public class FIleController {
     @PostMapping(consumes = {"text/csv", "application/xml"})
     @ResponseStatus(HttpStatus.CREATED)
     @Transactional
-    public ResponseEntity<String> uploadFileContent(@RequestBody byte[] body, @RequestHeader("Content-Type") String contentType) throws IOException {
+    public String uploadFileContent(@RequestBody byte[] body, @RequestHeader("Content-Type") String contentType) throws IOException {
         String errors = fileService.processContent(body, contentType);
-        if (errors.isEmpty()) {
-            return ResponseEntity.ok().body("Created");
-        }
-        else {
-            return ResponseEntity.ok().body(errors);
-        }
+        return errors.isEmpty() ? "Created" : errors;
     }
 
 }
