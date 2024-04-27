@@ -26,7 +26,7 @@ public class CsvFileParser implements FileParser {
 
     @Override
     public List<Animal> parse(byte[] file) throws IOException, InvalidFileFormatException {
-        BindingResult result = new BeanPropertyBindingResult(file, "animal");
+        BindingResult result = new BeanPropertyBindingResult(file, "csvData");
         csvValidator.validate(file, result);
         if (result.hasErrors()) {
             throw new InvalidFileFormatException(result);

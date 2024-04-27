@@ -1,5 +1,6 @@
 package com.example.task.validator.FileValidator;
 
+import lombok.Getter;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.springframework.validation.Errors;
@@ -14,11 +15,12 @@ import java.util.Set;
 
 public class CSVValidator implements Validator {
 
+    @Getter
     private static final List<String> REQUIRED_HEADERS = List.of("Name", "Type", "Sex", "Weight", "Cost");
 
     @Override
     public boolean supports(Class<?> clazz) {
-        return true;
+        return byte[].class.equals(clazz);
     }
 
     @Override
