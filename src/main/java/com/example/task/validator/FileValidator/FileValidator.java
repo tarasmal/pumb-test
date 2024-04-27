@@ -1,7 +1,9 @@
 package com.example.task.validator.FileValidator;
 
+import com.example.task.exception.InvalidFileFormatException;
+
 import java.io.IOException;
 
 public interface FileValidator {
-    boolean validate(byte[] data) throws IOException;
+    void validate(byte[] data) throws IOException, InvalidFileFormatException;
 }

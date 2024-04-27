@@ -1,10 +1,12 @@
 package com.example.task.fileParser;
 
+import com.example.task.dto.Animal.Animal;
+
 import java.io.IOException;
 import java.util.List;
 
 public interface FileParser {
 
-    List<Object> parse(byte[] file) throws IOException;
+    List<Animal> parse(byte[] file) throws IOException;
     boolean supports(String contentType);
 }
