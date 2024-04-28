@@ -6,7 +6,7 @@ public class Animal{
     private String name;
     private String type;
     private String sex;
-    private String weight;
+    private int weight;
     private int cost;
     public Category determineCategory(){
         if (cost <= 20) {

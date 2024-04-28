@@ -3,6 +3,7 @@ package com.example.task.validator.FileValidator;
 import lombok.Getter;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
+import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
@@ -13,6 +14,7 @@ import java.io.Reader;
 import java.util.List;
 import java.util.Set;
 
+@Component
 public class CSVValidator implements Validator {
 
     @Getter

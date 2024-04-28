@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.BeanPropertyBindingResult;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.Validator;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -21,7 +20,7 @@ import java.util.List;
 @Qualifier("csvParser")
 @RequiredArgsConstructor
 public class CsvFileParser implements FileParser {
-    private final Validator csvValidator = new CSVValidator();
+    private final CSVValidator csvValidator;
     private final AnimalMapper animalMapper;
 
     @Override
