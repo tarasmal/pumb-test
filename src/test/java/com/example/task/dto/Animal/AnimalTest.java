@@ -1,11 +1,14 @@
 package com.example.task.dto.Animal;
 
+import lombok.Data;
+import lombok.RequiredArgsConstructor;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 class AnimalTest {
 
@@ -24,15 +27,13 @@ class AnimalTest {
     @MethodSource("provideTestData")
     void testDetermineCategory(TestData testData) {
         Animal animal = new Animal();
-        animal.setCost(testData.cost);
-        assertEquals(testData.expectedCategory, animal.determineCategory());
+        animal.setCost(testData.getCost());
+        assertEquals(testData.getExpectedCategory(), animal.determineCategory());
     }
+    @Data
+    @RequiredArgsConstructor
     private static class TestData {
-        int cost;
-        Category expectedCategory;
-        TestData(int cost, Category expectedCategory) {
-            this.cost = cost;
-            this.expectedCategory = expectedCategory;
-        }
+        private final int cost;
+        private final Category expectedCategory;
     }
 }
