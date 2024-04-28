@@ -24,10 +24,10 @@ public class AnimalService {
     public String saveToDb(List<Animal> animals) {
         ArrayList<String> errors = new ArrayList<>();
         for (Animal animal : animals) {
-            AnimalDocument animalDocument = animalMapper.toAnimalDocument(animal);
             BindingResult result = new BeanPropertyBindingResult(animal, "animal");
             animalValidator.validate(animal, result);
             if (!result.hasErrors()){
+                AnimalDocument animalDocument = animalMapper.toAnimalDocument(animal);
                 mongoTemplate.save(animalDocument, "animals");
             }
             else {
