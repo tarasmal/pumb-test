@@ -9,13 +9,13 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import java.util.Arrays;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
-@SpringBootTest(classes = {AnimalMapperImpl.class})
 class AnimalServiceTest {
     @Mock
     private AnimalValidator animalValidator;
@@ -32,6 +32,7 @@ class AnimalServiceTest {
 
     @BeforeEach
     void setUp() {
+        MockitoAnnotations.openMocks(this);
         animalValid = mock(Animal.class);
         animalInvalid = mock(Animal.class);
         document = mock(AnimalDocument.class);

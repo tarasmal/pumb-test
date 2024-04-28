@@ -3,20 +3,20 @@ package com.example.task.mapper;
 import com.example.task.dto.Animal;
 import com.example.task.dto.Category;
 import com.example.task.dto.AnimalDocument;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.mapstruct.factory.Mappers;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
-
-@SpringBootTest(classes = {AnimalMapperImpl.class})
 class AnimalMapperTest {
-
-    @Autowired
     private AnimalMapper animalMapper;
+    @BeforeEach
+    void setUp() {
+        animalMapper = Mappers.getMapper(AnimalMapper.class);
+    }
 
     @Test
     void toAnimal() {

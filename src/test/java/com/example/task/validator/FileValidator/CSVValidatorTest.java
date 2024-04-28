@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class CSVValidatorTest {
     private CSVValidator validator;
     @BeforeEach
-    void setUp() {
+    void setUp () {
         validator = new CSVValidator();
     }
 

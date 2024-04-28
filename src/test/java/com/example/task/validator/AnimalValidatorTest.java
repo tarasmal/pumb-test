@@ -7,8 +7,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.MethodSource;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.validation.BeanPropertyBindingResult;
 import org.springframework.validation.BindingResult;
 
@@ -16,9 +14,13 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@SpringBootTest(classes = {AnimalValidator.class})
 class AnimalValidatorTest {
     private AnimalValidator animalValidator;
+
+    @BeforeEach
+    void setUp () {
+        animalValidator = new AnimalValidator();
+    }
     @Data
     @RequiredArgsConstructor
     private static class TestDataForSupportsMethod {
@@ -26,10 +28,6 @@ class AnimalValidatorTest {
         private final boolean result;
     }
 
-    @BeforeEach
-    void setUp() {
-        animalValidator = new AnimalValidator();
-    }
     static Stream<AnimalValidatorTest.TestDataForSupportsMethod> provideTestDataForSupportsMethod() {
         return Stream.of(
                 new AnimalValidatorTest.TestDataForSupportsMethod(String.class, false),
