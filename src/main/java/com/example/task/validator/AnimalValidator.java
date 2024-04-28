@@ -1,6 +1,6 @@
 package com.example.task.validator;
 
-import com.example.task.dto.Animal.Animal;
+import com.example.task.dto.Animal;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;

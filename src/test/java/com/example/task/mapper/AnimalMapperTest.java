@@ -1,7 +1,7 @@
 package com.example.task.mapper;
 
-import com.example.task.dto.Animal.Animal;
-import com.example.task.dto.Animal.Category;
+import com.example.task.dto.Animal;
+import com.example.task.dto.Category;
 import com.example.task.dto.AnimalDocument;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

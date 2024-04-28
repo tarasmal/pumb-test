@@ -1,4 +1,4 @@
-package com.example.task.dto.Animal;
+package com.example.task.dto;
 
 public enum Category {
     FIRST,

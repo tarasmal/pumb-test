@@ -1,8 +1,9 @@
 package com.example.task.validator;
 
-import com.example.task.dto.Animal.Animal;
+import com.example.task.dto.Animal;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -17,13 +18,17 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest(classes = {AnimalValidator.class})
 class AnimalValidatorTest {
-    @Autowired
     private AnimalValidator animalValidator;
     @Data
     @RequiredArgsConstructor
     private static class TestDataForSupportsMethod {
         private final Class<?> target;
         private final boolean result;
+    }
+
+    @BeforeEach
+    void setUp() {
+        animalValidator = new AnimalValidator();
     }
     static Stream<AnimalValidatorTest.TestDataForSupportsMethod> provideTestDataForSupportsMethod() {
         return Stream.of(

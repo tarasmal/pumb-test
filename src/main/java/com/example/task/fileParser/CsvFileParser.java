@@ -1,6 +1,6 @@
 package com.example.task.fileParser;
 
-import com.example.task.dto.Animal.Animal;
+import com.example.task.dto.Animal;
 import com.example.task.exception.InvalidFileFormatException;
 import com.example.task.mapper.AnimalMapper;
 import com.example.task.validator.FileValidator.CSVValidator;

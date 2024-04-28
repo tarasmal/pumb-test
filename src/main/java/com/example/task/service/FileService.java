@@ -1,7 +1,7 @@
 package com.example.task.service;
 
 
-import com.example.task.dto.Animal.Animal;
+import com.example.task.dto.Animal;
 import com.example.task.exception.InvalidFileFormatException;
 import com.example.task.fileParser.FileParser;
 import lombok.RequiredArgsConstructor;

@@ -1,6 +1,5 @@
 package com.example.task.dto;
 
-import com.example.task.dto.Animal.Category;
 import lombok.Data;
 
 @Data

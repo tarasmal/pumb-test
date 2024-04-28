@@ -1,6 +1,6 @@
 package com.example.task.fileParser;
 
-import com.example.task.dto.Animal.Animal;
+import com.example.task.dto.Animal;
 
 import java.io.IOException;
 import java.util.List;
