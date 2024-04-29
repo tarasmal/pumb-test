@@ -34,7 +34,6 @@ public class AnimalService {
                 errors.add(result.getAllErrors().toString());
             }
         }
-
         return errors.isEmpty() ? "" : Arrays.deepToString(errors.toArray());
     }
 }

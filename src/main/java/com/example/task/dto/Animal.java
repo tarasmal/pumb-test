@@ -6,8 +6,8 @@ public class Animal{
     private String name;
     private String type;
     private String sex;
-    private int weight;
-    private int cost;
+    private Integer weight;
+    private Integer cost;
     public Category determineCategory(){
         if (cost <= 20) {
             return Category.FIRST;
