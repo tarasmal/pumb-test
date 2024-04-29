@@ -45,7 +45,7 @@ class AnimalMapperTest {
         expectedAnimalDocument.setSex("c");
         expectedAnimalDocument.setCost(1);
         expectedAnimalDocument.setWeight(2);
-        expectedAnimalDocument.setCategory(Category.FIRST);
+        expectedAnimalDocument.setCategory(Category.FIRST.getValue());
         animal.setName("a");
         animal.setType("b");
         animal.setSex("c");

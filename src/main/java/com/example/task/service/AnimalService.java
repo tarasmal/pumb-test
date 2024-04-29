@@ -2,6 +2,7 @@ package com.example.task.service;
 
 import com.example.task.dto.Animal;
 import com.example.task.dto.AnimalDocument;
+import com.example.task.dto.SortBy;
 import com.example.task.mapper.AnimalMapper;
 import com.example.task.validator.AnimalValidator;
 import lombok.RequiredArgsConstructor;

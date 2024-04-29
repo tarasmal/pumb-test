@@ -9,5 +9,5 @@ public class AnimalDocument {
     private String sex;
     private Integer weight;
     private Integer cost;
-    public Category category;
+    public Integer category;
 }

@@ -8,18 +8,18 @@ public class Animal{
     private String sex;
     private Integer weight;
     private Integer cost;
-    public Category determineCategory(){
+    public Integer determineCategory(){
         if (cost <= 20) {
-            return Category.FIRST;
+            return Category.FIRST.getValue();
         }
         else if (cost <= 40 ) {
-            return Category.SECOND;
+            return Category.SECOND.getValue();
         }
         else if (cost <= 60) {
-            return Category.THIRD;
+            return Category.THIRD.getValue();
         }
         else {
-            return Category.FOURTH;
+            return Category.FOURTH.getValue();
         }
     }
 }
