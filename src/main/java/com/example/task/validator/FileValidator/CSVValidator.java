@@ -13,12 +13,13 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Component
 public class CSVValidator implements Validator {
 
     @Getter
-    private static final List<String> REQUIRED_HEADERS = List.of("Name", "Type", "Sex", "Weight", "Cost");
+    private static final List<String> REQUIRED_HEADERS = List.of("name", "type", "sex", "weight", "cost");
 
     @Override
     public boolean supports(Class<?> clazz) {
@@ -36,7 +37,7 @@ public class CSVValidator implements Validator {
                     .withFirstRecordAsHeader()
                     .withIgnoreHeaderCase()
                     .parse(reader);
-            Set<String> headers = parser.getHeaderMap().keySet();
+            Set<String> headers = parser.getHeaderMap().keySet().stream().map(String::toLowerCase).collect(Collectors.toSet());
             if (!headers.containsAll(REQUIRED_HEADERS)) {
                 errors.reject("missing.headers", "Please provide all required fields: " + REQUIRED_HEADERS);
             }

@@ -14,7 +14,9 @@ import org.springframework.validation.BindingResult;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Component
 @Qualifier("csvParser")
@@ -34,10 +36,18 @@ public class CsvFileParser implements FileParser {
         Reader in = new InputStreamReader(new ByteArrayInputStream(file));
         Iterable<CSVRecord> records = CSVFormat.RFC4180.withFirstRecordAsHeader().parse(in);
         for (CSVRecord record : records) {
-            Animal animal = animalMapper.toAnimal(record.toMap());
+            Animal animal = animalMapper.toAnimal(convertKeyToLowerCase(record.toMap()));
             animals.add(animal);
         }
         return animals;
+    }
+
+    private Map<String, String> convertKeyToLowerCase(Map<String, String> map) {
+        Map<String, String> convertedMap = new HashMap<>();
+        for (Map.Entry<String, String> entry : map.entrySet()) {
+            convertedMap.put(entry.getKey().toLowerCase(), entry.getValue());
+        }
+        return convertedMap;
     }
 
     @Override

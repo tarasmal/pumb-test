@@ -1,8 +1,6 @@
 package com.example.task.controller;
 
 import com.example.task.dto.AnimalDocument;
-import com.example.task.dto.Filter;
-import com.example.task.dto.SortBy;
 import com.example.task.service.AnimalQueryService;
 import com.example.task.util.AnimalQueryBuilder;
 import lombok.RequiredArgsConstructor;
@@ -11,10 +9,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/animals")
