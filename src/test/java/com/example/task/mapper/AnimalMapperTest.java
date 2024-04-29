@@ -21,16 +21,16 @@ class AnimalMapperTest {
     @Test
     void toAnimal() {
         Animal expectedAnimal = new Animal();
-        expectedAnimal.setName("a");
+        expectedAnimal.setName("");
         expectedAnimal.setType("b");
         expectedAnimal.setSex("c");
-        expectedAnimal.setCost(1);
+        expectedAnimal.setCost(0);
         expectedAnimal.setWeight(2);
         Map<String, String> testedMap = new HashMap<>();
-        testedMap.put("name", "a");
+        testedMap.put("name", "");
         testedMap.put("type", "b");
         testedMap.put("sex", "c");
-        testedMap.put("cost", "1");
+        testedMap.put("cost", "");
         testedMap.put("weight", "2");
         assertEquals(expectedAnimal, animalMapper.toAnimal(testedMap));
 

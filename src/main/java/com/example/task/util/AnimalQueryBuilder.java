@@ -26,10 +26,10 @@ public class AnimalQueryBuilder {
         return query;
     }
 
-    private List<SortBy> parseSortCriterias() {
+    List<SortBy> parseSortCriterias() {
         return sortBy != null ? sortBy.stream().map(SortBy::new).toList() : Collections.emptyList();
     }
-    private List<Filter> parseFilters(){
+    List<Filter> parseFilters(){
         return filters.entrySet().stream()
                 .filter(entry -> validFilters.contains(entry.getKey()))
                 .flatMap(entry -> entry.getValue().stream().map(value -> new Filter(entry.getKey(), value))).collect(Collectors.toList());
