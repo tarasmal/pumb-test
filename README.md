@@ -7,8 +7,8 @@ git clone https://github.com/tarasmal/pumb-test
 
 ## **Start the app**
 To start the app you have to start start-app.sh script, which is located in the root of this repository \
-_<path_to_bash>_ _<path_to_start-app.sh>_ \
-## App would be available by this URL: 
+_<path_to_bash>_ _<path_to_start-app.sh>_ 
+## App will be available by this URL: 
 http://localhost:8080
 ## Documentation:
 http://localhost:8080/swagger-ui/index.html
