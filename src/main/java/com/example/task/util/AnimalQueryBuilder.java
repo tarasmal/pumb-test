@@ -44,15 +44,16 @@ public class AnimalQueryBuilder {
     private void addFilterCriterias(List<Filter> filters, Query query) {
         if (filters != null) {
             for (Filter filter : filters) {
-                Object value;
-                try {
-                    value = Integer.parseInt(filter.getValue());
-                }
-                catch (NumberFormatException ex) {
-                    value = filter.getValue();
-                }
-                query.addCriteria(Criteria.where(filter.getFieldName()).is(value));
+                query.addCriteria(Criteria.where(filter.getFieldName()).is(getFilterCriteriaTExactValue(filter)));
             }
+        }
+    }
+    private Object getFilterCriteriaTExactValue(Filter filter) {
+        try {
+            return Integer.parseInt(filter.getValue());
+        }
+        catch (NumberFormatException ex) {
+            return filter.getValue();
         }
     }
 }
