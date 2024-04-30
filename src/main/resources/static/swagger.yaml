@@ -7,9 +7,58 @@ host: localhost:8080
 schemes:
   - http
 paths:
+  /files/uploads:
+    post:
+      summary: Upload file content
+      consumes:
+        - text/csv
+        - application/xml
+      description: Uploads file content in CSV or XML format.
+      parameters:
+        - in: body
+          name: animals
+          description: animals to upload to db
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+                example: "Teddy"
+              type:
+                type: string
+                example: "dog"
+              sex:
+                type: string
+                example: "male"
+              weight:
+                type: number
+                example: 50.5
+              cost:
+                type: number
+                example: 15.2
+
+        - in: header
+          name: Content-Type
+          required: true
+          schema:
+            type: string
+
+      responses:
+        '201':
+          description: File content successfully uploaded
+          schema:
+            type: string
+            example: Created
+        '400':
+          description: Invalid file format or content
+          schema:
+            type: string
+            example: >- 
+              [Field error in object 'animal' on field 'name': rejected value []; codes [name.required.animal.name,name.required.name,name.required.java.lang.String,name.required];
+      tags:
+        - Animals
   /animals:
     get:
-
       tags:
         - Animals
       summary: Get animals
