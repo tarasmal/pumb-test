@@ -27,7 +27,7 @@ public class XmlFileParser implements FileParser {
     private final AnimalMapper animalMapper;
 
     @Data
-    private static class XmlRecord {
+    static class XmlRecord {
         private List<String> requiredFields = List.of("name", "type", "sex", "weight", "cost");
         private Map<String, String> xmlRecord;
         public Map<String, String> createXmlRecord(Node node) {
