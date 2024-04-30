@@ -19,23 +19,11 @@ paths:
           name: animals
           description: animals to upload to db
           schema:
-            type: object
-            properties:
-              name:
-                type: string
-                example: "Teddy"
-              type:
-                type: string
-                example: "dog"
-              sex:
-                type: string
-                example: "male"
-              weight:
-                type: number
-                example: 50.5
-              cost:
-                type: number
-                example: 15.2
+            type: string
+            example: |
+              Name,Type,Sex,Weight,Cost
+              Buddy,cat,female,41,78
+            
 
         - in: header
           name: Content-Type
