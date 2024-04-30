@@ -44,7 +44,14 @@ public class AnimalQueryBuilder {
     private void addFilterCriterias(List<Filter> filters, Query query) {
         if (filters != null) {
             for (Filter filter : filters) {
-                query.addCriteria(Criteria.where(filter.getFieldName()).is(filter.getValue()));
+                Object value;
+                try {
+                    value = Integer.parseInt(filter.getValue());
+                }
+                catch (NumberFormatException ex) {
+                    value = filter.getValue();
+                }
+                query.addCriteria(Criteria.where(filter.getFieldName()).is(value));
             }
         }
     }
