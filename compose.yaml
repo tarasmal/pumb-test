@@ -4,4 +4,27 @@ services:
     environment:
       - 'MONGO_INITDB_DATABASE=db'
     ports:
-      - 27017:27017
+      - '27017:27017'
+    networks:
+      - appnetwork
+
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - mongodb
+    ports:
+      - '8080:8080'
+    restart: on-failure
+    networks:
+      - appnetwork
+    environment:
+      SPRING_APPLICATION_JSON: '{
+        "spring.data.mongodb.uri": "mongodb://mongodb:27017/db"
+      }'
+    stdin_open: true
+    tty: true
+networks:
+  appnetwork:
+    driver: bridge
