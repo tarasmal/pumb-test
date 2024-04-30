@@ -1,0 +1,68 @@
+swagger: "2.0"
+info:
+  title: Animal API
+  description: API for managing animals
+  version: 1.0.0
+host: localhost:8080
+schemes:
+  - http
+paths:
+  /animals:
+    get:
+
+      tags:
+        - Animals
+      summary: Get animals
+      description: Returns a list of animals based on provided filters and sorting options
+      parameters:
+        - name: type
+          in: query
+          description: Filter by animal type
+          type: string
+          example: dog
+        - name: category
+          in: query
+          description: Filter by animal category
+          type: string
+          example: "1"
+        - name: sex
+          in: query
+          description: Filter by animal sex
+          type: string
+          example: male
+        - name: sortBy
+          in: query
+          description: Sort by specified fields and orders
+          type: array
+          items:
+            type: string
+          collectionFormat: multi
+          example: ["weight:asc", "category:desc"]
+      responses:
+        '200':
+          description: Successful operation
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/AnimalDocument'
+
+definitions:
+  AnimalDocument:
+    type: object
+    properties:
+      name:
+        type: string
+      type:
+        type: string
+      sex:
+        type: string
+      weight:
+        type: integer
+      cost:
+        type: integer
+      category:
+        type: integer
+
+tags:
+  - name: Animals
+    description: Operations related to animals

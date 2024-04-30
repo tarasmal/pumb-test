@@ -8,7 +8,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 import java.util.Set;
 
@@ -16,6 +15,7 @@ import java.util.Set;
 @RequestMapping("/animals")
 @RequiredArgsConstructor
 public class AnimalController {
+
     private final AnimalQueryService animalQueryService;
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
