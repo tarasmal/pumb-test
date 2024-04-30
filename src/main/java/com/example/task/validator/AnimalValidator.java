@@ -31,7 +31,7 @@ public class AnimalValidator implements Validator {
             errors.rejectValue(fieldName, fieldName + ".required", FIELD_IS_REQUIRED.formatted(fieldName));
         }
     }
-    private void validateField(Integer value, String fieldName, Errors errors) {
+    private void validateField(Double value, String fieldName, Errors errors) {
         if (value <= 0) {
             errors.rejectValue(fieldName, fieldName + ".must_be_positive", FIELD_MUST_BE_POSITIVE_OR_ZERO.formatted(fieldName));
         }

@@ -8,8 +8,8 @@ import java.util.Map;
 
 @Mapper(componentModel = "spring")
 public interface AnimalMapper {
-    @Mapping(target = "cost", source = "cost", qualifiedByName = "mapNullableStringToInt")
-    @Mapping(target = "weight", source = "weight", qualifiedByName = "mapNullableStringToInt")
+    @Mapping(target = "cost", source = "cost", qualifiedByName = "mapNullableStringToDouble")
+    @Mapping(target = "weight", source = "weight", qualifiedByName = "mapNullableStringToDouble")
     Animal toAnimal(Map<String, String> animalRecord);
 
     @BeforeMapping
@@ -17,9 +17,9 @@ public interface AnimalMapper {
         animalDocument.setCategory(animal.determineCategory());
     }
 
-    @Named("mapNullableStringToInt")
-    default Integer mapNullableStringToInt(String nullableInput) {
-        return nullableInput.isEmpty() ? 0 : Integer.parseInt(nullableInput);
+    @Named("mapNullableStringToDouble")
+    default Double mapNullableStringToDouble(String nullableInput) {
+        return nullableInput.isEmpty() ? 0 : Double.parseDouble(nullableInput);
     }
     AnimalDocument toAnimalDocument(Animal animal);
 }
