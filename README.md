@@ -17,7 +17,7 @@ http://localhost:8080/swagger-ui/index.html
 GET 
 ##
 ```
-    curl -X 'GET' 'http://localhost:8080/animals' -H 'accept: application/json'
+curl -X 'GET' 'http://localhost:8080/animals' -H 'accept: application/json'
 ```
 
 POST
