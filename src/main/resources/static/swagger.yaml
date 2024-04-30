@@ -36,13 +36,9 @@ paths:
           description: File content successfully uploaded
           schema:
             type: string
-            example: Created
-        '400':
-          description: Invalid file format or content
-          schema:
-            type: string
-            example: >- 
-              [Field error in object 'animal' on field 'name': rejected value []; codes [name.required.animal.name,name.required.name,name.required.java.lang.String,name.required];
+            example: >-
+              Created or [Field error in object 'animal' on field 'name': rejected value []; codes [name.required.animal.name,name.required.name,name.required.java.lang.String,name.required];
+
       tags:
         - Animals
   /animals:
