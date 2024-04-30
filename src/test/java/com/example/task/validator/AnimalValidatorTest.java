@@ -46,10 +46,11 @@ class AnimalValidatorTest {
     @CsvSource({
             "a, b, c, 1, 2, false",
             " , b, c, 1, 2, true",
-            "a,  , c, 1, 2, true",
+            "a,  , c, 1, 1, true",
             "a, b,  , 1, 2, true",
             "a, b, c, 0, 2, true",
-            "a, b, c, 1, -1, true"
+            "a, b, c, 1, -1, true",
+            "a, b, c, 1, 0, true"
     })
     void testAnimalValidation(String name, String type, String sex, int weight, int cost, boolean expectedErrors) {
         BindingResult result = prepareAndValidateAnimal(name, type, sex, weight, cost);

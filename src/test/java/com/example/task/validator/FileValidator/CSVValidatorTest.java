@@ -42,9 +42,13 @@ class CSVValidatorTest {
         validator.validate(data, errors);
         verify(errors).reject("missing.headers", "Please provide all required fields: " + CSVValidator.getREQUIRED_HEADERS());
     }
-    @Test
-    void testValidateWithAllHeaders() {
-        String csvData = "Name,Type,Sex,Weight,Cost\nBuddy,Dog,Male,30,100";
+    @ParameterizedTest
+    @ValueSource(strings = {
+            "Name,Type,Sex,Weight,Cost\nBuddy,Dog,Male,30,100",
+            "name,type,Sex,Weight,Cost\nBuddy,Dog,Male,30,100",
+
+    })
+    void testValidateWithAllHeaders(String csvData) {
         byte[] data = csvData.getBytes(StandardCharsets.UTF_8);
         Errors errors = mock(Errors.class);
         validator.validate(data, errors);

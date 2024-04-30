@@ -37,7 +37,7 @@ class CsvFileParserTest {
         return Stream.of(
                 new CsvFileParserTest.TestData( "", 0),
                 new CsvFileParserTest.TestData("Name,Type,Sex,Weight,Cost\nBuddy,Dog,Male,20,100\nLucy,Cat,Female,15,150\nCharlie,Dog,Male,30,200\nBella,Cat,Female,10,120", 4),
-                new CsvFileParserTest.TestData("Name,Type,Sex,Weight,Cost\nBuddy,Dog,Male,20,100", 1)
+                new CsvFileParserTest.TestData("name,type,sex,weight,cost\nBuddy,Dog,Male,20,100", 1)
         );
     }
     @ParameterizedTest
