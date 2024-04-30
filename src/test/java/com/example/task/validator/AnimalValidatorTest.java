@@ -56,7 +56,7 @@ class AnimalValidatorTest {
         BindingResult result = prepareAndValidateAnimal(name, type, sex, weight, cost);
         assertEquals(expectedErrors, result.hasErrors());
     }
-    private BindingResult prepareAndValidateAnimal(String name, String type, String sex, int weight, int cost) {
+    private BindingResult prepareAndValidateAnimal(String name, String type, String sex, double weight, double cost) {
         Animal animal = new Animal();
         animal.setName(name);
         animal.setType(type);

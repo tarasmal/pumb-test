@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 public class AnimalQueryBuilder {
-    private final Set<String> validFilters;
+    private final Set<String> validFilters = Set.of("type", "category", "sex");
     private final List<String> sortBy;
     private final MultiValueMap<String, String> filters;
 

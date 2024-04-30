@@ -24,8 +24,8 @@ class AnimalMapperTest {
         expectedAnimal.setName("");
         expectedAnimal.setType("b");
         expectedAnimal.setSex("c");
-        expectedAnimal.setCost(0);
-        expectedAnimal.setWeight(2);
+        expectedAnimal.setCost(0D);
+        expectedAnimal.setWeight(2D);
         Map<String, String> testedMap = new HashMap<>();
         testedMap.put("name", "");
         testedMap.put("type", "b");
@@ -43,14 +43,14 @@ class AnimalMapperTest {
         expectedAnimalDocument.setName("a");
         expectedAnimalDocument.setType("b");
         expectedAnimalDocument.setSex("c");
-        expectedAnimalDocument.setCost(1);
-        expectedAnimalDocument.setWeight(2);
+        expectedAnimalDocument.setCost(1D);
+        expectedAnimalDocument.setWeight(2D);
         expectedAnimalDocument.setCategory(Category.FIRST.getValue());
         animal.setName("a");
         animal.setType("b");
         animal.setSex("c");
-        animal.setCost(1);
-        animal.setWeight(2);
+        animal.setCost(1D);
+        animal.setWeight(2D);
         assertEquals(expectedAnimalDocument, animalMapper.toAnimalDocument(animal));
     }
 }

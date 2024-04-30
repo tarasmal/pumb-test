@@ -11,15 +11,12 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 
 import java.util.List;
-import java.util.Set;
 
 
 class AnimalQueryBuilderTest {
 
     @Test
     void buildQuery() {
-
-        Set<String> validFilters = Set.of("type", "category");
         List<String> sortBy = List.of("fieldName:asc", "otherField:desc");
         MultiValueMap<String, String> filters = new LinkedMultiValueMap<>();
         filters.add("type", "cat");
@@ -29,7 +26,7 @@ class AnimalQueryBuilderTest {
         expectedQuery.addCriteria(Criteria.where("category").is("mammal"));
         expectedQuery.with(Sort.by(Sort.Direction.ASC, "fieldName"));
         expectedQuery.with(Sort.by(Sort.Direction.DESC, "otherField"));
-        AnimalQueryBuilder queryBuilder = new AnimalQueryBuilder(validFilters, sortBy, filters);
+        AnimalQueryBuilder queryBuilder = new AnimalQueryBuilder(sortBy, filters);
         Query actualQuery = queryBuilder.buildQuery();
 
         assertThat(actualQuery.toString(), is(equalTo(expectedQuery.toString())));

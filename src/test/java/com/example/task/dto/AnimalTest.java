@@ -13,12 +13,12 @@ class AnimalTest {
 
     static Stream<TestData> provideTestData() {
         return Stream.of(
-                new TestData(20, Category.FIRST.getValue()),
-                new TestData(21, Category.SECOND.getValue()),
-                new TestData(40, Category.SECOND.getValue()),
-                new TestData(41, Category.THIRD.getValue()),
-                new TestData(60, Category.THIRD.getValue()),
-                new TestData(61, Category.FOURTH.getValue())
+                new TestData(20D, Category.FIRST.getValue()),
+                new TestData(21D, Category.SECOND.getValue()),
+                new TestData(40D, Category.SECOND.getValue()),
+                new TestData(41D, Category.THIRD.getValue()),
+                new TestData(60D, Category.THIRD.getValue()),
+                new TestData(61D, Category.FOURTH.getValue())
         );
     }
 
@@ -32,7 +32,7 @@ class AnimalTest {
     @Data
     @RequiredArgsConstructor
     private static class TestData {
-        private final Integer cost;
+        private final Double cost;
         private final Integer expectedCategory;
     }
 }

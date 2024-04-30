@@ -10,6 +10,7 @@ import org.springframework.data.mongodb.core.query.Query;
 import java.util.Arrays;
 import java.util.List;
 
+import static com.example.task.util.test.TestAnimalDocumentUtil.createAnimalDocument;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -27,25 +28,16 @@ class AnimalQueryServiceTest {
         assertEquals(expectedAnimals, actualAnimals);
     }
 
-    private static AnimalDocument createAnimalDocument(String name, String type, String sex, Integer weight, Integer cost, Integer category) {
-        AnimalDocument animalDocument = new AnimalDocument();
-        animalDocument.setName(name);
-        animalDocument.setType(type);
-        animalDocument.setSex(sex);
-        animalDocument.setWeight(weight);
-        animalDocument.setCost(cost);
-        animalDocument.setCategory(category);
-        return animalDocument;
-    }
+
     private static Object[][] queryProvider() {
         return new Object[][] {
                 { new Query(Criteria.where("type").is("dog")), Arrays.asList(
-                        createAnimalDocument("a", "dog", "c", 1, 2, 1),
-                        createAnimalDocument("aa", "dog", "cc", 11, 200, 4)
+                        createAnimalDocument("a", "dog", "c", 1D, 2D, 1),
+                        createAnimalDocument("aa", "dog", "cc", 11D, 200D, 4)
                 )},
                 { new Query(Criteria.where("type").is("cat")), Arrays.asList(
-                        createAnimalDocument("a", "cat", "c", 1, 2, 1),
-                        createAnimalDocument("a", "cat", "c", 1, 2, 1)
+                        createAnimalDocument("a", "cat", "c", 1D, 2D, 1),
+                        createAnimalDocument("a", "cat", "c", 1D, 2D, 1)
                 )},
         };
     }
