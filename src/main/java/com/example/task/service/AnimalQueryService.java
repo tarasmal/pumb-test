@@ -15,7 +15,5 @@ public class AnimalQueryService {
     public List<AnimalDocument> getAnimals(Query query) {
         return mongoTemplate.find(query, AnimalDocument.class, "animals");
     }
-
-
 }
 
